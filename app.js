@@ -90,14 +90,14 @@ function sendImgMessage(recipientId) {
         payload: {
           template_type: "generic",
           elements: [{
-            title: "rift",
-            subtitle: "Next-generation virtual reality",
-            item_url: "https://www.oculus.com/en-us/rift/",               
-            image_url: "http://messengerdemo.parseapp.com/img/rift.png",
+            title: "Danymall",
+            subtitle: "my shoping mall",
+            item_url: "http://ec2-13-124-176-99.ap-northeast-2.compute.amazonaws.com:8080/",               
+            image_url: "http://ec2-13-124-176-99.ap-northeast-2.compute.amazonaws.com:8080/img/slider/home2/banner3.jpg",
             buttons: [{
               type: "web_url",
-              url: "https://www.oculus.com/en-us/rift/",
-              title: "Open Web URL"
+              url: "http://ec2-13-124-176-99.ap-northeast-2.compute.amazonaws.com:8080/",
+              title: "my shopingmall page"
             }, {
               type: "postback",
               title: "Call Postback",
