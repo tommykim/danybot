@@ -51,6 +51,9 @@ function receivedMessage(event) {
     var content = event.message.text;
     var echo_message = "ECHO : " + content;
     sendTextMessage(senderId, echo_message);
+    if(content==='해리'){
+        sendTextMessage(senderId, '사랑해');
+    }
 }
 function receivedPostback(event) {
     console.log("RECEIVED POSTBACK IT WORKS");
