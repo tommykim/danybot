@@ -61,7 +61,7 @@ function receivedPostback(event) {
 function sendTextMessage(recipientId, message) {
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
-        qs: { access_token: PAGE_ACCESS_TOKEN },
+        qs: { access_token: EAABzum9EZAbQBAOcnYvdU3281seYvvLku4iPPtnhUpmF5rgDl9zsRb5uYmZASIM9Ko34BzqGIfX9HKgBQIiyE5JbONnDZC5NFIAN6n9xeUi69TloFCroTi8RB98s5fepc6o8L660E3BeJaUPzBUGs1veZC91qOUtJLMTYROWSkCVsSh6NpjC  },
         method: 'POST',
         json: {
             recipient: { id: recipientId },
