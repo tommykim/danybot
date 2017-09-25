@@ -49,11 +49,22 @@ app.post("/webhook", function(req, res) {
 function receivedMessage(event) {
     var senderId = event.sender.id;
     var content = event.message.text;
-    var echo_message = "ECHO : " + content;
-    sendTextMessage(senderId, echo_message);
-    if(content==='해리'){
-        sendTextMessage(senderId, '사랑해');
-    }
+  
+    if(content==='대용'){
+        sendTextMessage(senderId, '취업하고싶다');
+    } else if(content==='바보'){
+		sendTextMessage(senderId, '멍청이');
+	} else if(content==='돈'){
+		sendTextMessage(senderId, '좋아');
+	} else if(content==='라면'){
+		sendTextMessage(senderId, '맛있지');
+	} else if(content==='컴퓨터'){
+		sendTextMessage(senderId, '맥북사고싶어');
+	} else if(content==='야'){
+		sendTextMessage(senderId, '왜');
+	}  else{
+		sendTextMessage(senderId, '무슨말인지 모르겠어요');
+	}
 }
 function receivedPostback(event) {
     console.log("RECEIVED POSTBACK IT WORKS");
