@@ -69,13 +69,47 @@ function receivedMessage(event) {
       case 'generic':
         sendGenericMessage(senderID);
         break;
-
+	case 'imgtest':
+		sendImgMessage(senderID);
+		break;
       default:
         sendTextMessage(senderID, messageText);
     }
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
   }
+}
+function sendImgMessage(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "generic",
+          elements: [{
+            title: "rift",
+            subtitle: "Next-generation virtual reality",
+            item_url: "https://www.oculus.com/en-us/rift/",               
+            image_url: "http://messengerdemo.parseapp.com/img/rift.png",
+            buttons: [{
+              type: "web_url",
+              url: "https://www.oculus.com/en-us/rift/",
+              title: "Open Web URL"
+            }, {
+              type: "postback",
+              title: "Call Postback",
+              payload: "Payload for first bubble",
+            }],
+          }]
+        }
+      }
+    }
+  };  
+
+  callSendAPI(messageData);
 }
 
 function sendGenericMessage(recipientId) {
@@ -126,14 +160,20 @@ function sendGenericMessage(recipientId) {
 }
 
 function receivedPostback(event) {
-    console.log("RECEIVED POSTBACK IT WORKS");
-    var senderID = event.sender.id;
-    var recipientID = event.recipient.id;
-    var timeOfPostback = event.timestamp;
-    var payload = event.postback.payload;
-    console.log("Received postback for user %d and page %d with payload '%s' " +
-        "at %d", senderID, recipientID, payload, timeOfPostback);
-    sendTextMessage(senderID, "Postback called");
+  var senderID = event.sender.id;
+  var recipientID = event.recipient.id;
+  var timeOfPostback = event.timestamp;
+
+  // The 'payload' param is a developer-defined field which is set in a postback 
+  // button for Structured Messages. 
+  var payload = event.postback.payload;
+
+  console.log("Received postback for user %d and page %d with payload '%s' " + 
+    "at %d", senderID, recipientID, payload, timeOfPostback);
+
+  // When a postback is called, we'll send a message back to the sender to 
+  // let them know it was successful
+  sendTextMessage(senderID, "Postback called");
 }
 function sendTextMessage(recipientId, messageText) {
   var messageData = {
