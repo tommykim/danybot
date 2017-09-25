@@ -62,6 +62,8 @@ function receivedMessage(event) {
 		sendTextMessage(senderId, '맥북사고싶어');
 	} else if(content==='야'){
 		sendTextMessage(senderId, '왜');
+	} else if(content==='해리'){
+		sendTextMessage(senderId, '사랑해');
 	}  else{
 		sendTextMessage(senderId, '무슨말인지 모르겠어요');
 	}
