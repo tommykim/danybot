@@ -72,40 +72,14 @@ function receivedMessage(event) {
 	case 'danymall':
 		sendImgMessage(senderID);
 		break;
-	case 'button':
-		sendButtonMessage(senderID);
-		break;
-      default:
+    default:
         sendTextMessage(senderID, messageText);
     }
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
   }
 }
-function sendButtonMessage(recipientID){
-	var messageDate = {
-		buttons:[
-			{
-				type:"postback",
-				title:"btn_test1",
-				payload:"defined"
 
-			}
-			{
-				type:"postback",
-				title:"btn_test2",
-				payload:"defined"
-
-			}
-			{
-				type:"postback",
-				title:"btn_test3",
-				payload:"defined"
-
-			}
-		]
-	}
-}
 function sendImgMessage(recipientId) {
   var messageData = {
     recipient: {
