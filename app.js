@@ -92,8 +92,9 @@ function sendButtonMessage(recipientId) {
       attachment: {
         type: "template",
         payload: {
-          template_type: "generic",
-			buttons: [{
+          template_type: "button",
+		  text:"haha",
+		  buttons: [{
               type: "postback",
               title: "Call Postback1",
               payload: "test1",
@@ -101,7 +102,7 @@ function sendButtonMessage(recipientId) {
               type: "postback",
               title: "Call Postback2",
               payload: "test2",
-           }]
+          }]
         }
       }
     }
